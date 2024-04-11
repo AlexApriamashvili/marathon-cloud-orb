@@ -36,6 +36,11 @@ parameters:
     type: string
     default: "marathon"
     description: "Output folder"
+  xcTestPlan:
+    type: string
+    default: ""
+    description: >
+      Path to the '.xctestplan' file that provides a list of active and disabled tests
 steps:
   - run:
       name: Run tests using marathon-cloud
@@ -48,4 +53,5 @@ steps:
         ORB_LINK: <<parameters.link>>
         ORB_NAME: <<parameters.runName>>
         ORB_OUTPUT: <<parameters.output>>
+        ORB_XC_TEST_PLAN: <<parameters.xcTestPlan>>
       command: <<include(scripts/run-tests.sh)>>

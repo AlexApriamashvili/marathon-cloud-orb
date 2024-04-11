@@ -16,5 +16,9 @@ if [ -n "$ORB_NAME" ]; then
     command="$command -name \"$ORB_NAME\""
 fi
 
+if [ -n "$ORB_XC_TEST_PLAN" ]; then
+    command="$command --xctestplan-filter-file \"$ORB_XC_TEST_PLAN\""
+fi
+
 echo "Executing command: $command"
 eval "$command"
